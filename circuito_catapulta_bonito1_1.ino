@@ -12,7 +12,7 @@
 #define motorAlvoLigar 13
 #define motorAlvoPos 6
 #define motorAlvoNeg 9
-#define botao 9
+#define botao 7
 #define botaoAlvo 10
 #define switchLancamento 8
 #define buzzer 2
@@ -36,6 +36,7 @@ bool botaoLancamentoApertado=false;
 
 int pontos=0;
 String dificuldade = "nao";
+
 void setup() 
 {
   Serial.begin(9600);
@@ -59,8 +60,11 @@ void setup()
   digitalWrite(motorAlvoLigar, HIGH);
   lcd.init();
   lcd.backlight();
+  servoPuxador.write(30);
   servoPuxador.attach(servoPuxarLancador);
+  servoGirador.write(45);
   servoGirador.attach(servoGiro);
+  travaCatapulta.write(180);
   travaCatapulta.attach(servoTrava);
 }
 
@@ -84,11 +88,8 @@ void loop()
   while(dificuldade == "nao"){
     lcd.setCursor(0, 0);
     valorBotao = !digitalRead(botao);
-    Serial.print("botao ");
-    Serial.println(valorBotao);
     while(valorBotao){
-      Serial.print("botao ");
-      Serial.println(valorBotao);
+      Serial.println(tempoBotao);
       tempoBotao+=1;
       delay(1);
       apertou=true;
@@ -172,7 +173,7 @@ void loop()
     //valorBotao = 0;
     bool travaSwitch = 0, valorBotaoAlvo = 0;
     valorBotao = !digitalRead(botao);
-	valorBotaoAlvo = !digitalRead(botaoAlvo);
+	  valorBotaoAlvo = !digitalRead(botaoAlvo);
     travaSwitch = !digitalRead(switchLancamento);
     //Serial.println(valorBotao);
     //Serial.print("botao");
@@ -224,12 +225,12 @@ void loop()
         else if (millis()-tempoLancamento<6000){
           Serial.print("c");
           Serial.println(tempoLancamento);
-          servoPuxador.write(90);
+          servoPuxador.write(75);
         }
         else if (millis()-tempoLancamento<8000){
           Serial.print("d");
           Serial.println(tempoLancamento);
-          travaCatapulta.write(0);
+          travaCatapulta.write(180);
         }
         else{
           Serial.print("e");
@@ -313,6 +314,6 @@ void lancar()
 void arrumar()
 {
   //updateTempoLancamento=true;
-  travaCatapulta.write(0);
-  servoPuxador.write(60);
+  travaCatapulta.write(180);
+  servoPuxador.write(50);
 }
