@@ -11,6 +11,9 @@
 //valores para o movimento do servo do elástico
 int valorTensionado = 80;
 int valorDestensionado = 180;
+int arcoAngulo = 90;
+int anguloTravado = 180;
+int anguloDestravado = 90;
 //variaveis para o print do lcd
 int angForm = 0;
 int valorAnt = 1024;
@@ -38,9 +41,9 @@ void setup()
   lcd.backlight();
   servoPuxador.write(valorDestensionado);
   servoPuxador.attach(servoPuxarLancador);
-  servoGirador.write(45);
+  servoGirador.write(arcoAngulo/2);
   servoGirador.attach(servoGiro);
-  travaCatapulta.write(180);
+  travaCatapulta.write(anguloTravado);
   travaCatapulta.attach(servoTrava);
 }
 
@@ -133,7 +136,7 @@ void loop()
         }
         else if(millis()-tempoLancamento<6000){ //destravar trava
           lancando=true;
-          travaCatapulta.write(90);
+          travaCatapulta.write(anguloDestravado);
         }
         else if (millis()-tempoLancamento<8000){ //desligar estado de lançamento
           lancando=false;
@@ -153,7 +156,7 @@ void loop()
           }
           if (valorBotaoRecarregar){
             valorBotaoRecarregar = !digitalRead(botaoRecarregar);
-            travaCatapulta.write(180);
+            travaCatapulta.write(anguloTravado);
             recarregando=0;
           }
 
@@ -162,7 +165,7 @@ void loop()
           updateTempoLancamento=true;
           botaoLancamentoApertado=false;
           delay(5000); //temp
-          travaCatapulta.write(180); //temp
+          travaCatapulta.write(anguloTravado); //temp
           lcd.clear();
           lcd.home();
           lcd.print("Modo: ");
@@ -239,7 +242,7 @@ void girar()
 
 void arrumar()
 {
-  travaCatapulta.write(180);
+  travaCatapulta.write(anguloTravado);
   servoPuxador.write(valorDestensionado);
 }
 
