@@ -24,7 +24,7 @@ Para os parafusos que não são dos servos, foi utilizado a base de M3. É recom
 1x Potenciômetro
 
 //OBSERVAÇÕES IMPORTANTES//
-Podem existir pequenas variações no tamanho dos servos a depender do fabricante. Caso ache relevante e possua o conhecimento, é válido alterar as medidas dos encaixes para evitar o uso de colas ou retrabalho. É recomendado o uso de uma fonte externa entre 5-5.5V para alimentar os servos, pois conexões diretas no arduino podem causar problemas de operação. LCD pode ser conectado na saída de 5V do arduino diretamente
+Podem existir pequenas variações no tamanho dos servos a depender do fabricante. Caso ache relevante e possua o conhecimento, é válido alterar as medidas dos encaixes para evitar o uso de colas ou retrabalho. É recomendado o uso de uma fonte externa entre 5-5.5V para alimentar os servos, pois conexões diretas no arduino podem causar problemas de operação. LCD pode ser conectado na saída de 5V do arduino diretamente.
 
 
 
@@ -56,7 +56,7 @@ For the screws that do not fit in the servos, was used M3. It is recommended, wh
 1x Potentiometer
 
 //IMPORTANT OBSERVATIONS//
-There may be slightly divergences on the servo sizes depending of the manufacturer. If you find relevance and have the knowledge, it is valid to change the fitting sizes, trying to avoid glue or rework. It is recommended the use of an external power source, between 5-5.5V to feed the servos, because direct connections might cause operational issues. The LCD can be powered directly in the 5V output of the arduino
+There may be slightly divergences on the servo sizes depending of the manufacturer. If you find relevance and have the knowledge, it is valid to change the fitting sizes, trying to avoid glue or rework. It is recommended the use of an external power source, between 5-5.5V to feed the servos, because direct connections might cause operational issues. The LCD can be powered directly in the 5V output of the arduino.
 
 //CIRCUITO(CIRCUIT)//
 
